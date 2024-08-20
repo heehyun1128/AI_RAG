@@ -1,0 +1,125 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Emily Turner",
+        "subject": "Mathematics",
+        "stars": 5,
+        "review": "Dr. Turner is an amazing professor. Her explanations are clear, and she's always willing to help outside of class."
+      },
+      {
+        "professor": "Prof. John Smith",
+        "subject": "Physics",
+        "stars": 4,
+        "review": "Good professor with a solid understanding of the subject. Sometimes the lectures can be a bit fast-paced."
+      },
+      {
+        "professor": "Dr. Amanda Davis",
+        "subject": "Chemistry",
+        "stars": 3,
+        "review": "Decent professor but could be more engaging in her lectures. Labs are well-organized."
+      },
+      {
+        "professor": "Prof. Michael Johnson",
+        "subject": "History",
+        "stars": 4,
+        "review": "Engaging lectures with lots of interesting anecdotes. Assignments are a bit challenging."
+      },
+      {
+        "professor": "Dr. Lisa Green",
+        "subject": "Biology",
+        "stars": 5,
+        "review": "Dr. Green is one of the best professors I've had. She makes complex topics easy to understand."
+      },
+      {
+        "professor": "Prof. James Brown",
+        "subject": "Computer Science",
+        "stars": 2,
+        "review": "The professor knows his stuff, but the lectures are too technical and hard to follow."
+      },
+      {
+        "professor": "Dr. Sarah Miller",
+        "subject": "English Literature",
+        "stars": 4,
+        "review": "Very passionate about the subject. Her classes are thought-provoking, but the reading load is heavy."
+      },
+      {
+        "professor": "Prof. Robert Wilson",
+        "subject": "Economics",
+        "stars": 3,
+        "review": "Okay professor, but he tends to go off-topic during lectures. Exams are fair."
+      },
+      {
+        "professor": "Dr. Jessica White",
+        "subject": "Psychology",
+        "stars": 5,
+        "review": "Dr. White is an incredible lecturer. She makes every class engaging and interactive."
+      },
+      {
+        "professor": "Prof. David Lee",
+        "subject": "Sociology",
+        "stars": 4,
+        "review": "Solid professor with a lot of real-world experience. Discussions in class are very insightful."
+      },
+      {
+        "professor": "Dr. William Harris",
+        "subject": "Philosophy",
+        "stars": 2,
+        "review": "The material is interesting, but the lectures are dry and hard to stay focused on."
+      },
+      {
+        "professor": "Prof. Mary Clark",
+        "subject": "Art History",
+        "stars": 5,
+        "review": "Prof. Clark is incredibly knowledgeable and passionate about art. Her classes are always enjoyable."
+      },
+      {
+        "professor": "Dr. Richard Lewis",
+        "subject": "Political Science",
+        "stars": 3,
+        "review": "Decent professor, but sometimes his lectures are hard to follow. Assignments are manageable."
+      },
+      {
+        "professor": "Prof. Barbara Hall",
+        "subject": "Business Management",
+        "stars": 4,
+        "review": "Engaging and practical. Provides lots of real-world examples to illustrate concepts."
+      },
+      {
+        "professor": "Dr. Thomas Young",
+        "subject": "Environmental Science",
+        "stars": 5,
+        "review": "Dr. Young is passionate and knowledgeable. His classes are both informative and inspiring."
+      },
+      {
+        "professor": "Prof. Patricia King",
+        "subject": "Linguistics",
+        "stars": 4,
+        "review": "Very thorough in her explanations. Sometimes the material can be dense, but she does a good job breaking it down."
+      },
+      {
+        "professor": "Dr. Christopher Martinez",
+        "subject": "Anthropology",
+        "stars": 3,
+        "review": "Interesting lectures, but the grading is tough. Be prepared to work hard in this class."
+      },
+      {
+        "professor": "Prof. Jennifer Allen",
+        "subject": "Music Theory",
+        "stars": 5,
+        "review": "Prof. Allen is amazing! She has a deep understanding of music and is very patient with students."
+      },
+      {
+        "professor": "Dr. Brian Wright",
+        "subject": "Statistics",
+        "stars": 2,
+        "review": "The course material is difficult, and the professor's teaching style doesn't make it any easier."
+      },
+      {
+        "professor": "Prof. Deborah Hill",
+        "subject": "Ethics",
+        "stars": 4,
+        "review": "Thought-provoking lectures and discussions. Sometimes the workload is a bit heavy."
+      }
+    ]
+  }
+  

@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+
+boto3 = "*"
+python-dotenv = "*"
+langchain-openai = "*"
+langchain-community = "*"
+langchain-pinecone = "*"
+pinecone-client = {extras = ["grpc"], version = "*"}
+langchain = "*"
+langchain-text-splitters = "*"
+aiohttp = "*"
+flask = "*"
+flask-cors = "*"
+flask-wtf = "*"
+
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
