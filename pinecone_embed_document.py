@@ -19,7 +19,7 @@ async def chunk_and_embed_document():
         for review in data["reviews"]:
             res=openai.embeddings.create( 
                                          input=review['review'],
-                                         model="text-embedding-ada-002"
+                                         model="text-embedding-3-small"
                 )
             embedding=res.data[0].embedding
             processed_data.append({
@@ -28,8 +28,8 @@ async def chunk_and_embed_document():
                 "metadata": {
                     "review": review["review"],
                     "subject": review["subject"],
-                    "stars": review["stars"]}
-                })
+                    "stars": review["stars"]},
+                    })
 
         print(processed_data[0])
         
