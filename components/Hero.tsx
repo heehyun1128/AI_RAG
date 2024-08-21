@@ -7,9 +7,15 @@ import axios from "axios";
 import ReactMarkdown from 'react-markdown';
 import Loader from "@/components/loader";
 
+type Message = {
+  role: string;
+  content: string;
+};
+
+
 const Hero: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [isChatting, setIsChatting]=useState<boolean>(false)
 
