@@ -1,0 +1,7 @@
+flask
+flask-cors
+langchain
+langchain-openai
+langchain-pinecone
+python-dotenv
+pinecone-client[grpc]

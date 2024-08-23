@@ -25,10 +25,22 @@ const ProfessorPage: React.FC = () => {
       setLoading(true);
       setSearchTerm("");
       setIsChatting(true);
-      const res = await axios.post(
-        "/api/chat",
-        JSON.stringify([...messages, { role: "user", content: searchTerm }])
-      );
+
+      let endpoint = "/api/chat";
+      let payload;
+
+      // Check if the searchTerm is a URL
+      const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+      const isUrl = urlPattern.test(searchTerm);
+
+      if (isUrl) {
+        endpoint = "/api/scrape";
+        payload = JSON.stringify({ url: searchTerm });
+      } else {
+        payload = JSON.stringify([...messages, { role: "user", content: searchTerm }]);
+      }
+
+      const res = await axios.post(endpoint, payload);
       setMessages((messages) => [
         ...messages,
         { role: "assistant", content: res.data },
@@ -57,7 +69,7 @@ const ProfessorPage: React.FC = () => {
           <input
             id="professor-search"
             className="w-[95%] bg-primary text-gray-400 placeholder-gray-400 rounded-lg px-2 py-2 pr-10 focus:ring-0 focus:outline-none focus:text-white"
-            placeholder="Enter professor's name or paste a rate my professor link."
+            placeholder="Enter professor's name or paste a RateMyProfessors URL"
             type="search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
