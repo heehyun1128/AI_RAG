@@ -1,56 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import axios from "axios";
-import ReactMarkdown from 'react-markdown';
-import Loader from "@/components/loader";
-
-type Message = {
-  role: string;
-  content: string;
-};
-
 
 const Hero: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [isChatting, setIsChatting]=useState<boolean>(false)
-
-  const searchProfessor = async () => {
-    try {
-      setMessages((messages) => [
-        ...messages,
-        { role: "user", content: searchTerm }
-      ]);
-      setLoading(true);
-      setSearchTerm("")
-      setIsChatting(true)
-      // Sending chat history to the server
-      const res = await axios.post(
-        "/api/chat",
-        JSON.stringify([...messages, { role: "user", content: searchTerm }])
-      );
-      console.log(res);
-      // Assuming the API response contains the assistant's response
-      const { data } = res;
-
-      // Update the messages state with the assistant's response
-     
-      setMessages((messages) => [
-        ...messages,
-       
-        { role: "assistant", content: res.data }, // Adjust this line according to your API response structure
-      ]);
-      setLoading(false);
-      
-    } catch (error) {
-      console.error("Error fetching data from the server:", error);
-    }
-  };
-
   return (
     <main className="container mx-auto px-4 sm:px-6 py-8 sm:py-16 text-center relative z-10 text-default">
       <motion.h1
@@ -81,89 +35,22 @@ const Hero: React.FC = () => {
         data-driven, and presented in a sleek, intuitive interface.
       </motion.p>
 
-      {/* Buttons */}
+      {/* Button to Professor Page */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.5 }}
         className="mt-12 flex justify-center"
       >
-        <div className="relative w-full max-w-2xl">
-          <input
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            type="text"
-            placeholder="Search for a professor..."
-            className="w-full py-3 px-4 pr-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-          />
-          <Button
-            onClick={searchProfessor}
-            className="absolute right-1 top-1/2 transform -translate-y-1/2 rounded-full"
-            size="icon"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
+        <Link href="/professor">
+          <Button className="py-3 px-6 rounded text-sm">
+            Search Professors
           </Button>
-        </div>
+        </Link>
       </motion.div>
-      <div>
-      <AnimatePresence>
-          {messages.map((chat, index) => (
-            <motion.div
-              key={index}
-              className={`my-2 flex ${
-                chat?.role === "user" ? "justify-end" : "justify-start"
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <motion.div
-                className={`p-3 rounded-2xl ${
-                  chat?.role === "user"
-                    ? "bg-purple-500 text-white"
-                    : "bg-white shadow-purple-300"
-                } shadow-md max-w-[90%] break-words`}
-              >
-                <strong>{chat?.role === "user" ? "You: " : "Garry: "}</strong>{" "}
-                {chat?.role === "user" ? (
-                  chat?.content
-                ) : (
-                  <ReactMarkdown className="prose prose-sm max-w-none overflow-hidden">
-                    {chat?.content}
-                  </ReactMarkdown>
-                )}
-              </motion.div>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-        {loading && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <Loader />
-          </motion.div>
-        )}
-</div>
 
-   {!isChatting &&  <div >
-       {/* Hero Image */}
-       <motion.div
+      {/* Hero Image */}
+      <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.6, duration: 0.5 }}
@@ -194,7 +81,6 @@ const Hero: React.FC = () => {
         Harnessing advanced AI to generate comprehensive professor evaluations
         from student feedback, optimizing your course selection process.
       </motion.p>
-     </div>}
     </main>
   );
 };
