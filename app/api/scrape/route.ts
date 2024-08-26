@@ -32,7 +32,9 @@ export async function POST(req: Request) {
     });
 
     // Insert into Pinecone
-    const pc = new Pinecone({ apiKey: process.env.PINECONE_API_KEY });
+    const pineconeApiKey = process.env.PINECONE_API_KEY;
+    if (!pineconeApiKey) throw new Error("PINECONE_API_KEY is not set");
+    const pc = new Pinecone({ apiKey: pineconeApiKey });
     const index = pc.index("rate-my-professor");
     await index.upsert([
       {

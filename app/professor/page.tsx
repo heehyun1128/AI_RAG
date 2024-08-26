@@ -52,9 +52,15 @@ const ProfessorPage: React.FC = () => {
     }
   };
 
+  const startNewChat = () => {
+    setMessages([]);
+    setIsChatting(false);
+    setSearchTerm("");
+  };
+
   return (
     <main className="professor-page" style={{ opacity: 1, willChange: 'auto' }}>
-      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 my-40a" style={{ willChange: 'auto', transform: 'none' }}>
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 my-40" style={{ willChange: 'auto', transform: 'none' }}>
         <header className="" style={{ opacity: 1, willChange: 'auto', transform: 'none' }}>
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 tracking-tight leading-relaxed" style={{ opacity: 1, willChange: 'auto', transform: 'none' }}>
             <span className="text-primary ">Welcome!</span><br className="hidden sm:block" />
@@ -98,8 +104,8 @@ const ProfessorPage: React.FC = () => {
                   <motion.div
                     className={`p-3 rounded-2xl ${
                       chat?.role === "user"
-                        ? "bg-purple-500 text-white"
-                        : "bg-white shadow-purple-300"
+                        ? "bg-primary text-white"
+                        : "bg-gray-200 text-primary"
                     } shadow-md max-w-[90%] break-words`}
                   >
                     <strong>{chat?.role === "user" ? "You: " : "Garry: "}</strong>{" "}
@@ -123,6 +129,15 @@ const ProfessorPage: React.FC = () => {
                 <Loader />
               </motion.div>
             )}
+            <motion.button
+              onClick={startNewChat}
+              className="mt-4 bg-primary text-white px-4 py-2 rounded-lg shadow-md hover:bg-secondary transition-all duration-300 ease-in-out"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              Start New Chat
+            </motion.button>
           </div>
         )}
       </section>
